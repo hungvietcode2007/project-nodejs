@@ -1,0 +1,36 @@
+<h1 class=" text-3xl font-bold text-center mt-20">Danh sách những học viên có thể thêm</h1>
+<p class="text-red-500 text-center mb-5">Lưu ý: Nếu thêm 1 học sinh mới hẳn, chưa có trong danh sách học viên của hệ thống, vui lòng thêm đầy đủ thông tin của học viên đó <a class="text-blue-500" href="/students/create">tại đây</a>  trước khi thêm vào lớp</p>
+<form action="/classes/<%=class_id%>/add" method="post" >
+    <table class="table-auto w-full max-w-7xl mx-auto">
+      <thead class="bg-gray-400">
+        <tr class="">
+          <th>Chọn</th>
+          <th>STT</th>
+          <th class="p-2">Mã học viên</th>
+          <th>Họ tên</th>
+          <th>Ngày sinh</th>
+          <th>Giới tính</th>
+          <th>Email</th>
+          <th>SĐT</th>
+          <th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% studentsList.forEach((students,index) => {%>
+            <tr
+            class="hover:bg-gray-200 hover:cursor-pointer">
+              <td class="text-center p-1.5"><input type="checkbox" name="studentID" value="<%= students.id %>"></td>
+              <td class="text-center p-1.5"><%=index+1%></td>
+              <td class="text-center p-1.5"><%=students.code%></td>
+              <td class="text-center p-1.5"><%=students.full_name%></td>
+              <td class="text-center p-1.5"><%=students.date_of_birth%></td>
+              <td class="text-center p-1.5"><%=students.gender%></td>
+              <td class="text-center p-1.5"><%=students.email%></td>
+              <td class="text-center p-1.5"><%=students.phone%></td>
+              <td class="text-center p-1.5"><%=students.note%></td>
+            </tr>
+          <%}); %>
+      </tbody>
+    </table>
+    <button type="submit" class="ml-10 mt-10 bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">Thêm</button>
+</form>

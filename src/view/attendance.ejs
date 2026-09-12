@@ -1,0 +1,25 @@
+<h1 class=" mb-5 text-3xl font-bold text-center mt-20">Danh sách điểm danh ngày <%=results2[0].session_date%></h1>
+<table class="table-auto w-full max-w-7xl mx-auto">
+  <thead class="bg-gray-400">
+    <tr class="">
+      <th>STT</th>
+      <th class="p-2">Mã học viên</th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Trạng thái</th>
+      <th>Ghi chú</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% List.forEach((list,index) => {%>
+        <tr class="hover:bg-gray-200 hover:cursor-pointer">
+          <td class="text-center p-1.5"><%=index+1%></td>
+          <td class="text-center p-1.5"><%=list.student_code%></td>
+          <td class="text-center p-1.5"><%=list.student_name%></td>
+          <td class="text-center p-1.5"><%=list.dob%></td>
+          <td class="text-center p-1.5"><%=list.status%></td>
+          <td class="text-center p-1.5"><%=list.note%></td>
+        </tr>
+      <%}); %>
+  </tbody>
+</table>

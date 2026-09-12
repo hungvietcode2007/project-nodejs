@@ -1,0 +1,60 @@
+
+<form action="/classes/search" class="max-w-md mx-auto mt-20" method="get">  
+    <div class="relative flex  border border-default-medium items-center place-content-around">
+      <i class="fa-solid fa-magnifying-glass text-[20px] "></i>
+        <input type="search" name="keyword" class=" outline-none block w-[90%] p-3 ps-2 bg-neutral-secondary-medium text-heading text-sm rounded-base shadow-xs" placeholder="Tìm kiếm lớp" required />
+    </div>
+</form>
+<h1 class="mb-5 text-3xl font-bold text-center">Các lớp học</h1>
+<table class="table-auto w-full max-w-7xl mx-auto">
+  <thead class="bg-gray-400">
+    <tr class="">
+      <th>STT</th>
+      <th class="p-2">Mã lớp</th>
+      <th>Tên</th>
+      <th>Môn học</th>
+      <th>Giáo viên</th>
+      <th>Ngày khai giảng</th>
+      <th>Trạng thái</th>
+      <th>Mô tả</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% classesList.forEach((classes,index) => {%>
+        <tr onclick="window.location.href='/classes/<%=classes.id%>'"
+         class="<%=classes.status==="active"?"bg-green-200 hover:bg-green-400/70":"bg-red-200 hover:bg-red-400/70"%> cursor-pointer">
+          <td class="text-center p-1.5"><%=index+1%></td>
+          <td class="text-center p-1.5"><%=classes.code%></td>
+          <td class="text-center p-1.5"><%=classes.name%></td>
+          <td class="text-center p-1.5"><%=classes.subject%></td>
+          <td class="text-center p-1.5"><%=classes.teacher_name%></td>
+          <td class="text-center p-1.5"><%=classes.start_date%></td>
+          <td class="text-center p-1.5"><%=classes.status%></td>
+          <td class="text-center p-1.5"><%=classes.description%></td>
+          <td class="text-center" onclick="event.stopPropagation()">
+          <form action="/toggleClassesStatus/<%=classes.id%>" method="post" class="inline">
+            <button class=" bg-transparent hover:bg-white font-semibold px-3 border rounded">
+            <%=classes.status==="active"?"Tạm dừng":"Tiếp tục" %>
+            </button>
+          </form>
+          <div class="inline relative" >
+            <button class="optionsBtn bg-transparent hover:bg-white font-semibold px-3 border rounded" 
+            onclick="this.nextElementSibling.classList.toggle('hidden')"
+            >Chọn  </button>
+            <div class="dropdown-menu absolute hidden right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-20 py-1">
+    <a href="/classes/<%=classes.id%>/edit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+      Chỉnh sửa
+    </a>
+    <a href="/classes/<%=classes.id%>/attendance" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+      Điểm danh
+    </a>
+  </div>
+          </div>
+          </td>
+        </tr>
+      <%}); %>
+  </tbody>
+</table>
+ <button class="ml-[45%] mt-10 bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded" onclick="window.location.href='/classes/create'">Thêm 1 lớp mới</button>
+

@@ -1,0 +1,48 @@
+
+<form action="/classes/search" class="max-w-md mx-auto mt-20" method="get">  
+    <div class="relative flex  border border-default-medium items-center place-content-around">
+      <i class="fa-solid fa-magnifying-glass text-[20px] "></i>
+        <input type="search" name="keyword" class=" outline-none block w-[90%] p-3 ps-2 bg-neutral-secondary-medium text-heading text-sm rounded-base shadow-xs" value="<%=keyword %>" required />
+    </div>
+</form>
+<h1 class="mb-5 text-3xl font-bold text-center">Các lớp học với từ khóa "<%=keyword%>"</h1>
+<table class="table-auto w-full max-w-7xl mx-auto">
+  <thead class="bg-gray-400">
+    <tr class="">
+      <th>STT</th>
+      <th class="p-2">Mã lớp</th>
+      <th>Tên</th>
+      <th>Môn học</th>
+      <th>Giáo viên</th>
+      <th>Ngày khai giảng</th>
+      <th>Trạng thái</th>
+      <th>Mô tả</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% classesList.forEach((classes,index) => {%>
+        <tr onclick="window.location.href='/classes/<%=classes.id%>'"
+         class="<%=classes.status==="active"?"bg-green-200 hover:bg-green-400/70":"bg-red-200 hover:bg-red-400/70"%> cursor-pointer">
+          <td class="text-center p-1.5"><%=index+1%></td>
+          <td class="text-center p-1.5"><%=classes.code%></td>
+          <td class="text-center p-1.5"><%=classes.name%></td>
+          <td class="text-center p-1.5"><%=classes.subject%></td>
+          <td class="text-center p-1.5"><%=classes.teacher_name%></td>
+          <td class="text-center p-1.5"><%=classes.start_date%></td>
+          <td class="text-center p-1.5"><%=classes.status%></td>
+          <td class="text-center p-1.5"><%=classes.description%></td>
+          <td class="text-center" onclick="event.stopPropagation()">
+          <form action="/toggleClassesStatus/<%=classes.id%>" method="post" class="inline">
+            <button class=" bg-transparent hover:bg-white font-semibold px-3 border rounded">
+            <%=classes.status==="active"?"Tạm dừng":"Tiếp tục" %>
+            </button>
+          </form>
+          <button class="bg-transparent hover:bg-white font-semibold px-3 border rounded" 
+          onclick="window.location.href='/classes/<%=classes.id%>/edit'">Sửa  </button>
+          </td>
+        </tr>
+      <%}); %>
+  </tbody>
+</table>
+

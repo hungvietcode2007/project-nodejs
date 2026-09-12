@@ -1,0 +1,67 @@
+<div class="grid grid-cols-2 gap-5 mt-20 max-w-7xl mx-auto md:mx-3">
+  <a href="/classes">
+    <div
+      class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
+    >
+      <img
+        class="h-auto w-full object-cover"
+        src="assets/classroom.jpg"
+        alt=""
+      />
+      <div class="absolute top-[50%] h-[50%] w-full bg-[#ffffff90]">
+        <h1 class="opacity-100 text-center text-3xl font-semibold mt-4">
+          Số lượng lớp đang được quản lý
+        </h1>
+        <p class="text-center text-5xl mt-4">
+          <%=classesNumber[0]["COUNT(*)"] %>
+        </p>
+      </div>
+    </div>
+  </a>
+  <a href="/students">
+    <div
+      class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
+    >
+      <img class="h-auto w-full object-cover" src="assets/student.jpg" alt="" />
+      <div class="absolute top-[50%] h-[50%] w-full bg-[#ffffff90]">
+        <h1 class="opacity-100 text-center text-3xl font-semibold mt-4">
+          Số lượng học viên đang theo học
+        </h1>
+        <p class="text-center text-5xl mt-4">
+          <%=studentsNumber[0]["COUNT(*)"] %>
+        </p>
+      </div>
+    </div>
+  </a>
+  <a href="">
+    <div
+      class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
+    >
+      <img
+        class="h-auto w-full object-cover"
+        src="assets/teaching.jpg"
+        alt=""
+      />
+      <div class="absolute top-[50%] h-[50%] w-full bg-[#ffffff90]">
+        <h1 class="opacity-100 text-center text-3xl font-semibold mt-4">
+          Số buổi học
+          <p class="text-2xl">(dựa trên buổi điểm danh)</p>
+        </h1>
+      </div>
+    </div>
+  </a>
+  <div
+    class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
+  >
+    <img
+      class="h-auto w-full object-cover"
+      src="assets/classroom2.jpg"
+      alt=""
+    />
+    <div class="absolute top-[50%] h-[50%] w-full bg-[#ffffff90]">
+      <h1 class="opacity-100 text-center text-3xl font-semibold mt-4">
+        Các lớp có hoạt động mới nhất
+      </h1>
+    </div>
+  </div>
+</div>

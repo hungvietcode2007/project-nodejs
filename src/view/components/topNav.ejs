@@ -1,0 +1,99 @@
+<nav class="bg-white fixed w-full z-20 top-0 inset-s-0 border-b border-default">
+  <div
+    class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4"
+  >
+    <a
+      href="https://www.facebook.com/hung.ang.959587"
+      class="flex items-center space-x-3"
+      target="_blank"
+    >
+      <img src="/assets/avatar.jpg" class="h-7 rounded-[50%]" alt="avatar" />
+      <span
+        class="self-center text-xl text-heading font-semibold whitespace-nowrap"
+      >
+        Author
+      </span>
+    </a>
+
+    <div
+      class="items-center justify-between hidden w-full md:flex md:w-auto"
+      id="navbar-user"
+    >
+      <ul
+        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary"
+      >
+        <li>
+          <a
+            href="/"
+            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="/classes"
+            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+          >
+            Quản lý lớp
+          </a>
+        </li>
+        <li>
+          <a
+            href="/students"
+            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+          >
+            Quản lý học viên
+          </a>
+        </li>
+        <li>
+          <a
+            href="/attendance"
+            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+          >
+            Điểm danh
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="relative ml-3">
+      <button
+        type="button"
+        id="userAvatar"
+        class="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+      >
+        <span class="absolute -inset-1.5"></span>
+        <span class="sr-only">Open user menu</span>
+        <img
+          src="/assets/landscape.jpg"
+          alt="user avatar"
+          class="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10"
+        />
+      </button>
+
+      <div
+        id="profile-menu"
+        class="hidden absolute right-0 z-50 mt-2 w-48 rounded-md bg-white py-1 shadow-lg outline outline-black/5"
+      >
+        <a
+          href="#"
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+        >
+          Your profile
+        </a>
+        <a
+          href="#"
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+        >
+          Settings
+        </a>
+        <a
+          href="#"
+          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+        >
+          Sign out
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,41 @@
+<form action="/students/search" class="max-w-md mx-auto mt-20" method="get">  
+    <div class="relative flex  border border-default-medium items-center place-content-around">
+      <i class="fa-solid fa-magnifying-glass text-[20px] "></i>
+        <input type="search" name="keyword" class=" outline-none block w-[90%] p-3 ps-2 bg-neutral-secondary-medium text-heading text-sm rounded-base shadow-xs" value="<%=keyword%>" required />
+    </div>
+</form>
+<h1 class=" mb-5 text-3xl font-bold text-center">Danh sách học viên với từ khóa "<%=keyword%>"</h1>
+<table class="table-auto w-full max-w-7xl mx-auto">
+  <thead class="bg-gray-400">
+    <tr class="">
+      <th>STT</th>
+      <th class="p-2">Mã học viên</th>
+      <th>Họ tên</th>
+      <th>Ngày sinh</th>
+      <th>Giới tính</th>
+      <th>Email</th>
+      <th>SĐT</th>
+      <th>Ghi chú</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% studentsList.forEach((students,index) => {%>
+        <tr onclick="window.location.href='/students/<%=students.id%>'"
+        class="hover:bg-gray-200 hover:cursor-pointer">
+          <td class="text-center p-1.5"><%=index+1%></td>
+          <td class="text-center p-1.5"><%=students.code%></td>
+          <td class="text-center p-1.5"><%=students.full_name%></td>
+          <td class="text-center p-1.5"><%=students.date_of_birth%></td>
+          <td class="text-center p-1.5"><%=students.gender%></td>
+          <td class="text-center p-1.5"><%=students.email%></td>
+          <td class="text-center p-1.5"><%=students.phone%></td>
+          <td class="text-center p-1.5"><%=students.note%></td>
+          <td class="text-center">
+          <button class="bg-transparent hover:bg-white font-semibold px-3 border rounded" 
+          onclick="event.stopPropagation();window.location.href='/students/<%=students.id%>/edit'">Sửa  </button>
+          </td>
+        </tr>
+      <%}); %>
+  </tbody>
+</table>
