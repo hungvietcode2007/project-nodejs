@@ -239,6 +239,64 @@ const addANewAttendance = async (
     [finalValues],
   );
 };
+const countAttendances = async () => {
+  const [results] = await connection.query("SELECT COUNT(*) FROM Sessions");
+  return results;
+};
+const getClassesIDOfStudent = async (id) => {
+  const [results] = await connection.query(
+    `SELECT class_id FROM Classes_Students
+    WHERE student_id=?`,
+    [id],
+  );
+  return results;
+};
+const deleteClassFromStudent = async (student_id, class_id) => {
+  await connection.query(
+    `DELETE FROM Classes_Students
+    WHERE student_id=? AND class_id=?`,
+    [student_id, class_id],
+  );
+};
+const addClassOfStudent = async (student_id, id) => {
+  await connection.query(
+    `INSERT INTO Classes_Students(class_id,student_id)
+    VALUES(?,?)`,
+    [id, student_id],
+  );
+};
+const getAllScores = async () => {
+  const [results] = await connection.query(`SELECT * FROM Scores`);
+  return results;
+};
+const getScoreBySessionIDAndTitle = async (session_id, title) => {
+  const [results] = await connection.query(
+    `SELECT sc.*,st.id AS student_id,st.full_name,st.code,st.date_of_birth
+    FROM Scores sc
+    JOIN Students st ON st.id=sc.student_id
+    WHERE session_id=? AND title=?`,
+    [session_id, title],
+  );
+  return results;
+};
+const countScores = async () => {
+  const [results] =
+    await connection.query(`SELECT COUNT(DISTINCT session_id, title) 
+  AS total_tests 
+  FROM Scores;`);
+  return results;
+};
+const getStudentsListWithAverageScore = async () => {
+  const [results] = await connection.query(`
+    SELECT 
+    st.*,
+    IFNULL(ROUND(AVG(sc.score),2),0) AS averageScore
+    FROM Students st
+    LEFT JOIN Scores sc ON sc.student_id=st.id
+    GROUP BY st.id
+    `);
+  return results;
+};
 module.exports = {
   getAllClasses,
   countClasses,
@@ -254,10 +312,18 @@ module.exports = {
   searchStudent,
   searchClass,
   getStudentsIDInClass,
+  getClassesIDOfStudent,
   addStudentToClass,
   deleteStudentFromClass,
   getAllAttendance,
   attendanceInfo,
   getAttendanceByClassID,
   addANewAttendance,
+  countAttendances,
+  deleteClassFromStudent,
+  addClassOfStudent,
+  getAllScores,
+  getScoreBySessionIDAndTitle,
+  countScores,
+  getStudentsListWithAverageScore,
 };

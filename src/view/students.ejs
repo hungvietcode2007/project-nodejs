@@ -16,6 +16,7 @@
       <th>Email</th>
       <th>SĐT</th>
       <th>Ghi chú</th>
+      <th>Điểm TB</th>
       <th>Hành động</th>
     </tr>
   </thead>
@@ -31,6 +32,7 @@
           <td class="text-center p-1.5"><%=students.email%></td>
           <td class="text-center p-1.5"><%=students.phone%></td>
           <td class="text-center p-1.5"><%=students.note%></td>
+        <td class="text-center"><%=students.averageScore%></td>
           <td class="text-center">
           <button class="bg-transparent hover:bg-white font-semibold px-3 border rounded" 
           onclick="event.stopPropagation();window.location.href='/students/<%=students.id%>/edit'">Sửa  </button>

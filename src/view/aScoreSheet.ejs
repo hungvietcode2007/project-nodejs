@@ -1,0 +1,25 @@
+<h1 class=" mb-5 text-3xl font-bold text-center mt-20">Bài kiểm tra "<%=List[0].title%>" ngày <%=date[0].session_date%> </h1>
+    <table class="table-auto w-full max-w-7xl mx-auto">
+      <thead class="bg-gray-400">
+        <tr class="">
+          <th>STT</th>
+          <th class="p-2">Mã học viên</th>
+          <th>Họ tên</th>
+          <th>Ngày sinh</th>
+          <th>Điểm</th>
+          <th>Ghi chú</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% List.forEach((list,index) => {%>
+            <tr class="hover:bg-gray-200">
+              <td class="text-center p-1.5"><%=index+1%></td>
+              <td class="text-center p-1.5"><%=list.code%></td>
+              <td class="text-center p-1.5"><%=list.full_name%></td>
+              <td class="text-center p-1.5"><%=list.date_of_birth%></td>
+              <td class="text-center p-1.5"><%=list.score%></td>
+              <td class="text-center p-1.5"><%=list.note%></td>
+            </tr>
+          <%}); %>
+      </tbody>
+    </table>

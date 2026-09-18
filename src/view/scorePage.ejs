@@ -1,0 +1,29 @@
+<h1 class=" text-3xl font-bold text-center mt-20 mb-5">Những bài kiểm tra đã có điểm</h1>
+<p class="mb-3 text-center text-red-500">Chú ý: Vui lòng thêm 1 bài kiểm tra có điểm trong buổi điểm danh tương ứng</p>
+<table class="table-auto w-full max-w-7xl mx-auto">
+  <thead class="bg-gray-400">
+    <tr class="">
+      <th>STT</th>
+      <th class="p-2">Mã lớp</th>
+      <th>Lớp</th>
+      <th>Ngày thực hiện</th>
+      <th>Bài kiểm tra</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% List.forEach((list,index) => {%>
+        <tr class="hover:bg-gray-200">
+          <td class="text-center p-1.5"><%=index+1%></td>
+          <td class="text-center p-1.5"><%=list.class_code%></td>
+          <td class="text-center p-1.5"><%=list.class_name%></td>
+          <td class="text-center p-1.5"><%=list.test_date%></td>
+          <td class="text-center p-1.5"><%=list.title%></td>
+          <td class="text-center" onclick="event.stopPropagation()">
+          <button class="bg-transparent hover:bg-white font-semibold px-3 border rounded" 
+          onclick="window.location.href='/scores/<%=list.session_id%>/<%=list.title%>'">Chi tiết</button>
+          </td>
+        </tr>
+      <%}); %>
+  </tbody>
+</table>

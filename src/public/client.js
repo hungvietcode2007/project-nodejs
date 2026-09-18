@@ -45,6 +45,33 @@ if (addAAtendanceBtn) {
     classesList.classList.add("flex");
     e.stopPropagation();
   });
+  document.addEventListener("click", (e) => {
+    if (
+      classesList.classList.contains("flex") &&
+      !classesList.classList.contains(e.target)
+    ) {
+      classesList.classList.remove("flex");
+      classesList.classList.add("hidden");
+    }
+  });
+}
+const addAScoreSheetBtn = document.querySelector("#addAScoreSheet");
+const scoresList = document.querySelector("#scoresList");
+if (addAScoreSheetBtn) {
+  addAScoreSheetBtn.addEventListener("click", (e) => {
+    scoresList.classList.remove("hidden");
+    scoresList.classList.add("flex");
+    e.stopPropagation();
+  });
+  document.addEventListener("click", (e) => {
+    if (
+      scoresList.classList.contains("flex") &&
+      !scoresList.classList.contains(e.target)
+    ) {
+      scoresList.classList.remove("flex");
+      scoresList.classList.add("hidden");
+    }
+  });
 }
 const dropdownMenu = document.querySelectorAll(".dropdown-menu");
 if (dropdownMenu) {

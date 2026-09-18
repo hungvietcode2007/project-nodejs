@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2 gap-5 mt-20 max-w-7xl mx-auto md:mx-3">
+<div class="grid grid-cols-2 gap-5 mt-20 max-w-7xl mx-auto">
   <a href="/classes">
     <div
       class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
@@ -33,7 +33,7 @@
       </div>
     </div>
   </a>
-  <a href="">
+  <a href="/attendance">
     <div
       class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
     >
@@ -43,25 +43,31 @@
         alt=""
       />
       <div class="absolute top-[50%] h-[50%] w-full bg-[#ffffff90]">
-        <h1 class="opacity-100 text-center text-3xl font-semibold mt-4">
+        <h1 class="opacity-100 text-center text-3xl font-semibold mt-3">
           Số buổi học
           <p class="text-2xl">(dựa trên buổi điểm danh)</p>
         </h1>
+        <p class="text-center text-5xl mt-4">
+          <%=attendancesNumber[0]["COUNT(*)"] %>
+        </p>
       </div>
     </div>
   </a>
-  <div
-    class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
-  >
-    <img
-      class="h-auto w-full object-cover"
-      src="assets/classroom2.jpg"
-      alt=""
-    />
-    <div class="absolute top-[50%] h-[50%] w-full bg-[#ffffff90]">
-      <h1 class="opacity-100 text-center text-3xl font-semibold mt-4">
-        Các lớp có hoạt động mới nhất
-      </h1>
+  <a href="/scores">
+    <div
+      class="relative hover:right-1.5 hover:bottom-1.5 hover:shadow-2xl hover:shadow-gray-700"
+    >
+      <img
+        class="h-auto w-full object-cover"
+        src="assets/classroom2.jpg"
+        alt=""
+      />
+      <div class="absolute top-[50%] h-[50%] w-full bg-[#ffffff90]">
+        <h1 class="opacity-100 text-center text-3xl font-semibold mt-4">
+          Số bài kiểm tra
+        </h1>
+        <p class="text-center text-5xl mt-6"><%=testsNumber[0].total_tests%></p>
+      </div>
     </div>
-  </div>
+  </a>
 </div>

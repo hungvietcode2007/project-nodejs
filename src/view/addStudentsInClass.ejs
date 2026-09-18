@@ -17,7 +17,9 @@
       </thead>
       <tbody>
       <% studentsList.forEach((students,index) => {%>
-            <tr
+            <tr onclick="const checkbox=this.querySelector('input[type=checkbox]');
+            if (event.target !== checkbox) checkbox.checked = !checkbox.checked;
+            this.classList.toggle('bg-green-200',checkbox.checked)"
             class="hover:bg-gray-200 hover:cursor-pointer">
               <td class="text-center p-1.5"><input type="checkbox" name="studentID" value="<%= students.id %>"></td>
               <td class="text-center p-1.5"><%=index+1%></td>
